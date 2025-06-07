@@ -1,0 +1,52 @@
+.about-section.two-column {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  background: #f7f9fc;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #34495e;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.about-images {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+/* Адаптивность: на маленьких экранах делаем колонки вертикальными */
+@media (max-width: 700px) {
+  .about-section.two-column {
+    flex-direction: column;
+  }
+
+  .about-images {
+    grid-template-columns: 1fr;
+  }
+}

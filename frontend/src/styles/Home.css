@@ -1,0 +1,139 @@
+/* Контейнер панели управления */
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+  background-color: #f0f2ff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(100, 100, 150, 0.1);
+  /* max-width: 700px; */
+}
+
+/* Поле поиска */
+.filter-panel input[type="text"] {
+  flex-grow: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.filter-panel input[type="text"]:focus {
+  outline: none;
+  border-color: #747bff;
+  box-shadow: 0 0 6px rgba(116, 123, 255, 0.5);
+}
+
+/* Селект сортировки */
+.filter-panel select {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-panel select:hover,
+.filter-panel select:focus {
+  border-color: #747bff;
+  box-shadow: 0 0 6px rgba(116, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Кнопка сброса */
+.filter-panel button {
+  padding: 10px 18px;
+  font-size: 1rem;
+  background-color: #747bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-panel button:hover {
+  background-color: #5a61d8;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Для мобильных - панель занимает всю ширину */
+@media (max-width: 480px) {
+  .filter-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-panel input[type="text"],
+  .filter-panel select,
+  .filter-panel button {
+    width: 100%;
+  }
+}
+
+/* Скелетон для карточки книги */
+.skeleton-card {
+  width: 100%; /* Чтобы занять всю ширину grid-ячейки */
+  box-sizing: border-box; /* Чтобы padding не ломал ширину */
+  border-radius: 8px;
+  background: #ccc;
+  animation: shimmer 1.5s infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* чуть меньше gap */
+  padding: 12px;
+  min-height: 380px; /* чтобы не сжималась по высоте */
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 300px;
+  border-radius: 6px;
+  background: #ccc;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-line {
+  height: 18px;
+  background: #ccc;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
+  width: 100%; /* по умолчанию длинные линии */
+}
+
+.skeleton-line.short {
+  width: 40%;
+}
+.skeleton-line.medium {
+  width: 70%;
+}
+.skeleton-line.long {
+  width: 90%;
+}
+
+
+/* Анимация мерцания */
+@keyframes shimmer {
+  0% {
+    background-color: #ddd;
+  }
+  50% {
+    background-color: #bbb;
+  }
+  100% {
+    background-color: #ddd;
+  }
+}
